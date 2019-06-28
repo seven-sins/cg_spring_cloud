@@ -1,0 +1,34 @@
+server:
+  port: 8761
+  name: eureka-server
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance: 
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    # 设置是否将自己作为客户端注册到注册中心(缺省true)
+    register-with-eureka: false
+    # 设置是否从注册中心获取注册信息(缺省true)
+    # 因为只有一个eurekaServer, 不需要从其他节点同步数据, 设为false
+    fetch-registry: false
+    # 集群配置多个, 逗号分隔
+    serverUrl:
+      defaultZone: http://${eureka.instance.hostname}:{server.port}/eureka/
+    healthcheck:
+      enabled: true
+  server:
+    # 清理已关闭的节点(默认60秒)
+    eviction-internal-timer-in-ms: 60000
+
+endpoints:
+  enabled: false
+  info:
+    enabled: true
+  # http://127.0.0.1:8761/actuator/health
+  health:
+    enabled: true
+    

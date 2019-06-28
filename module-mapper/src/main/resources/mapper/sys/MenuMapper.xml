@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 菜单mybatis映射文件 -->
+<mapper namespace="com.cg.mapper.sys.MenuMapper">
+
+	<sql id="base_column">
+		id, 
+       	menu_name,
+       	menu_url,
+       	parent_id,
+       	menu_desc,
+       	auth_code,
+       	status,
+       	is_delete,
+       	create_time,
+       	update_time,
+       	create_by,
+       	update_by
+	</sql>
+
+    <select id="getByMenuName" resultType="com.cg.po.sys.Menu">
+        select 
+        	<include refid="base_column"></include>
+       	from menu
+       	where menu_name=#{menuName}
+       	limit 1
+    </select>
+    
+</mapper> 

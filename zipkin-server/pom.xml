@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cg</groupId>
+		<artifactId>cg</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	
+	<artifactId>zipkin-server</artifactId>
+	<name>zipkin-server</name>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-server -->
+		<dependency>
+		    <groupId>io.zipkin.java</groupId>
+		    <artifactId>zipkin-server</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-autoconfigure-ui -->
+		<dependency>
+		    <groupId>io.zipkin.java</groupId>
+		    <artifactId>zipkin-autoconfigure-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- 		<dependency> -->
+		<!-- 		    <groupId>org.springframework.boot</groupId> -->
+		<!-- 		    <artifactId>spring-boot-starter</artifactId> -->
+		<!-- 		    <exclusions>  -->
+		<!--                 <exclusion> -->
+		<!--                     <groupId>org.springframework.boot</groupId> -->
+		<!--                     <artifactId>spring-boot-starter-logging</artifactId> -->
+		<!--                 </exclusion> -->
+		<!--                 <exclusion> -->
+		<!--                     <groupId>org.slf4j</groupId> -->
+		<!--                     <artifactId>slf4j-log4j12</artifactId> -->
+		<!--                 </exclusion> -->
+		<!--             </exclusions> -->
+		<!-- 		</dependency> -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+			<!--  排除默认的logback日志，使用log4j  -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+	</dependencies>
+	
+	<build>
+		<finalName>zipkin-server</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,57 @@
+server:
+  port: 6638
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    config:
+      failFast: true
+      uri: http://127.0.0.1:8888/
+      name: zipkin-client
+      profile: dev
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    serverUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    healthcheck:
+      enabled: true
+      
+endpoints:
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
+
+# hystrix超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+ribbon:
+   ReadTimeout: 2000
+   ConnectTimeout: 1000
+   MaxAutoRetries: 0  # 当前服务重试次数
+   MaxAutoRetriesNextServer: 0 # 切换服务重试次数
+   
+# 动态路由
+zuul:
+  host:
+    maxTotalConnections: 100
+    maxPerRouteConnections: 100
+  routes:
+    sys-server:
+      path: /rest/sys/**
+      stripPrefix: false
+      serviceId: module-sys
+    

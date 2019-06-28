@@ -1,0 +1,7 @@
+spring:
+  zipkin:
+    base-url: http://127.0.0.1:7900
+  connect-timeout: 3000
+  read-timeout: 3000
+  flush-interval: 1
+  compression-enabled: true

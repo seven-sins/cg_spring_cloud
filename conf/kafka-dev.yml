@@ -1,0 +1,30 @@
+# kafka配置项
+kafka:
+  # 消费者
+  consumer:
+    zookeeper:
+      connect: 192.168.0.205:2181
+    servers: 192.168.0.205:9092
+    enable: 
+      auto:
+        commit: true
+    session: 
+      timeout: 6000
+    auto: 
+      commit: 
+        interval: 100
+      offset: 
+        reset: latest
+      topic: testTopic
+      group: 
+        id: testGroup
+      concurrency: 10
+  # 生产者
+  producer:
+    servers: 192.168.0.205:9092
+    retries: 0
+    batch:
+      size: 4096
+    linger: 1
+    buffer: 
+      memory: 40960

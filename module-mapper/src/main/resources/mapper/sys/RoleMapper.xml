@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 用户mybatis映射文件 -->
+<mapper namespace="com.cg.mapper.sys.RoleMapper">
+
+	<sql id="base_column">
+		id, 
+       	role_name,
+       	role_desc,
+       	status,
+       	is_delete,
+       	create_time,
+       	update_time,
+       	create_by,
+       	update_by
+	</sql>
+
+    <select id="getByRoleName" resultType="com.cg.po.sys.Role">
+        select 
+        	<include refid="base_column"></include>
+       	from role
+       	where role_name=#{roleName}
+       	limit 1
+    </select>
+    
+    <select id="deleteByRoleId">
+    	update role set is_delete = 1 where id = #{id}
+    </select>
+    
+</mapper> 
