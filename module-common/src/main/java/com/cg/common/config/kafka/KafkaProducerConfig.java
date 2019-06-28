@@ -1,4 +1,4 @@
-package com.cg.common.kafka;
+package com.cg.common.config.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,11 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
-
+/**
+ * kafka配置项
+ * @author seven sins 
+ * 2019年6月29日 上午1:13:04
+ */
 @Configuration
 @EnableKafka
 public class KafkaProducerConfig {
@@ -36,8 +39,8 @@ public class KafkaProducerConfig {
 		props.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);
 		props.put(ProducerConfig.LINGER_MS_CONFIG, linger);
 		props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
-		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 		return props;
 	}
 

@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+import com.cg.common.annotation.EnableExceptionHandler;
 import com.cg.common.annotation.EnableKafkaServer;
 import com.cg.common.annotation.EnableMvnConfig;
 
@@ -17,10 +18,12 @@ import com.cg.common.annotation.EnableMvnConfig;
 @EnableMvnConfig
 /**
  * 启用kafka配置
- * @author seven sins
- * 2019年6月29日 上午1:03:34
  */
 @EnableKafkaServer
+/**
+ * 全局错误拦截
+ */
+@EnableExceptionHandler
 @SpringBootApplication
 @EnableDiscoveryClient
 public class KafkaApplication {

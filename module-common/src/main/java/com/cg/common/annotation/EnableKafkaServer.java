@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
-import com.cg.common.kafka.KafkaProducerConfig;
+import com.cg.common.config.kafka.KafkaProducerConfig;
+import com.cg.common.config.kafka.impl.KafkaProducerServiceImpl;
 
 /**
  * springUtil工具类
@@ -27,7 +28,7 @@ public @interface EnableKafkaServer {
 
 		@Override
 		public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-			return new String[] { KafkaProducerConfig.class.getName() };
+			return new String[] { KafkaProducerConfig.class.getName(), KafkaProducerServiceImpl.class.getName() };
 		}
 	}
 }
