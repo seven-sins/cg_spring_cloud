@@ -1,0 +1,7 @@
+# elasticsearch配置项
+es:
+  ip: 192.168.0.205
+spring:
+  elasticsearch: 
+    rest:
+      uris: 192.168.0.205:9200

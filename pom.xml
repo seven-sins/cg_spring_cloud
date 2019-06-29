@@ -38,9 +38,10 @@
     	<module>flink-kafka</module>
     	<module>config-database</module>
     	<module>config-shiro</module>
-    	<module>flink</module>
     	<module>config-hbase</module>
-	</modules>
+    	<module>config-elasticsearch</module>
+    	<module>flink</module>
+  </modules>
 
 	<dependencies>
 		<dependency>
@@ -337,6 +338,20 @@
 			    <scope>system</scope>
 			    <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
 			</dependency>
+			
+			<!-- elasticsearch -->
+			<!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+			<dependency>
+			    <groupId>org.elasticsearch</groupId>
+			    <artifactId>elasticsearch</artifactId>
+			    <version>6.4.2</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.elasticsearch.client</groupId>
+				<artifactId>transport</artifactId>
+				<version>6.4.2</version>
+			</dependency>
 					
 			<!-- 子项目依赖 -->
 			<dependency>
@@ -354,6 +369,12 @@
 				<artifactId>config-hbase</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.cg</groupId>
+				<artifactId>config-elasticsearch</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>module-common</artifactId>

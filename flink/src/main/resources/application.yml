@@ -24,7 +24,7 @@ spring:
     config:
       failFast: true
       uri: http://127.0.0.1:8888/
-      name: kafka
+      name: elasticsearch
       profile: dev
       
 endpoints:

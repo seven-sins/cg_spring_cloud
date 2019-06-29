@@ -251,11 +251,69 @@ http://192.168.0.205:16010
 
 # 5. 安装elasticsearch
 
+#### elasticsearch7.x要求Java11
+
 ```shell
-# 下载elasticsearch
+# 下载elasticsearch7.2.0
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.2.0-linux-x86_64.tar.gz
 # 解压
 tar -zxvf elasticsearch-7.2.0-linux-x86_64.tar.gz
+# 编辑config/elasticsearch.yml
+vi elasticsearch.yml
+path.data: /deploy/elasticsearch_data
+path.logs: /deploy/elasticsearch_log
+network.host: 192.168.0.205
+http.port: 9200
+cluster.name: my_es
+node.name: node1
+# 添加elasticsearch用户
+useradd es
+passwd es
+# 给目录授权
+chown -R es:es /deploy/elasticsearch_data
+chown -R es:es /deploy/elasticsearch_log
+chown -R es:es /deploy/elasticsearch-7.2.0
+# 1.使用root用户编辑/etc/security/limits.conf
+# 添加以下内容
+* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+# 2.root用户编辑vi /etc/sysctl.conf
+# 添加下面配置：
+vm.max_map_count=655360
+#配置完成执行命令
+sysctl -p
+# 启动(切换到es用户下启动)
+su es
+/deploy/elasticsearch-7.2.0/bin/elasticsearch -d
 
+# web访问
+http://192.168.0.205:9200/
 ```
+
+
+
+#### 安装elasticsearch6.x
+
+```shell
+# 下载
+wget  https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.tar.gz
+# 解压
+tar -zxvf elasticsearch-6.4.2.tar.gz
+# 安装方法同7.x
+
+# web访问
+http://192.168.0.205:9200/
+```
+
+
+
+##### 查看集群状态
+
+```shell
+http://192.168.0.205:9200/_cluster/health?pretty=true
+```
+
+
 

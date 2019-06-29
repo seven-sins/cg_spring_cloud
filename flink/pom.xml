@@ -79,6 +79,18 @@
 		    <artifactId>flink-shaded-jackson</artifactId>
 		</dependency>
 		<!-- flink end -->
+		
+		<!-- elasticsearch -->
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+		<dependency>
+		    <groupId>org.elasticsearch</groupId>
+		    <artifactId>elasticsearch</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>transport</artifactId>
+		</dependency>
 
 		<!-- 子项目依赖 -->
 		<dependency>
@@ -96,6 +108,10 @@
 			<artifactId>config-hbase</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.cg</groupId>
+			<artifactId>config-elasticsearch</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<build>
