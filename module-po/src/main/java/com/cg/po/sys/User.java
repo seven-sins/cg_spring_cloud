@@ -13,7 +13,6 @@ import com.cg.utils.validator.Amount;
 
 /**
  * 用户
- * 
  * @author Rex.Tan 
  * 2019年3月25日 下午3:28:09
  */
@@ -56,6 +55,23 @@ public class User implements Serializable {
 	 * 1:正常, 0:禁用
 	 */
 	private Integer status;
+	/**
+	 * 性别:1男,0女
+	 */
+	private Integer sex;
+
+	@Length(max = 11, message = "手机号超出最大长度(11)")
+	private String mobile;
+
+	@Length(max = 30, message = "邮箱超出最大长度(30)")
+	private String email;
+
+	private Integer age;
+	/**
+	 * 证件号
+	 */
+	@Length(max = 18, message = "证件号超出最大长度(18)")
+	private String idCard;
 
 	private Date createTime;
 
@@ -151,6 +167,46 @@ public class User implements Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 
 }

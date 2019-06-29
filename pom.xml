@@ -38,6 +38,8 @@
     	<module>flink-kafka</module>
     	<module>config-database</module>
     	<module>config-shiro</module>
+    	<module>flink</module>
+    	<module>config-hbase</module>
 	</modules>
 
 	<dependencies>
@@ -274,7 +276,67 @@
 			    <version>2.3.0</version>
 			</dependency>
 			
-		
+			<!-- flink start -->
+			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-core -->
+			<dependency>
+			    <groupId>org.apache.flink</groupId>
+			    <artifactId>flink-core</artifactId>
+			    <version>1.8.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
+			<dependency>
+			    <groupId>org.apache.flink</groupId>
+			    <artifactId>flink-clients_2.12</artifactId>
+			    <version>1.8.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+			<dependency>
+			    <groupId>org.apache.flink</groupId>
+			    <artifactId>flink-streaming-java_2.12</artifactId>
+			    <version>1.8.0</version>
+			    <scope>provided</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-java -->
+			<dependency>
+			    <groupId>org.apache.flink</groupId>
+			    <artifactId>flink-java</artifactId>
+			    <version>1.8.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka-0.11 -->
+			<dependency>
+			    <groupId>org.apache.flink</groupId>
+			    <artifactId>flink-connector-kafka-0.11_2.12</artifactId>
+			    <version>1.8.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-shaded-jackson -->
+			<dependency>
+			    <groupId>org.apache.flink</groupId>
+			    <artifactId>flink-shaded-jackson</artifactId>
+			    <version>2.9.8-7.0</version>
+			</dependency>
+			<!-- flink end -->
+			
+			<!-- hbase -->
+			<!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
+			<dependency>
+			    <groupId>org.apache.hbase</groupId>
+			    <artifactId>hbase-client</artifactId>
+			    <version>2.2.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-server -->
+			<dependency>
+			    <groupId>org.apache.hbase</groupId>
+			    <artifactId>hbase-server</artifactId>
+			    <version>2.2.0</version>
+			</dependency>
+			<!-- hadoop构建会报jdk-tools.jar找不到的错误 -->
+			<dependency>
+			    <groupId>jdk.tools</groupId>
+			    <artifactId>jdk.tools</artifactId>
+			    <version>1.8</version>
+			    <scope>system</scope>
+			    <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+			</dependency>
 					
 			<!-- 子项目依赖 -->
 			<dependency>
@@ -287,7 +349,11 @@
 				<artifactId>config-shiro</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+			<dependency>
+				<groupId>com.cg</groupId>
+				<artifactId>config-hbase</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>module-common</artifactId>

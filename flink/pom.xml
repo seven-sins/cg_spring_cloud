@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cg</groupId>
+		<artifactId>cg</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	
+	<artifactId>flink</artifactId>
+	<name>flink</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-sleuth -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+		
+		<!-- flink start -->
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-core -->
+		<dependency>
+		    <groupId>org.apache.flink</groupId>
+		    <artifactId>flink-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
+		<dependency>
+		    <groupId>org.apache.flink</groupId>
+		    <artifactId>flink-clients_2.12</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+		<dependency>
+		    <groupId>org.apache.flink</groupId>
+		    <artifactId>flink-streaming-java_2.12</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-java -->
+		<dependency>
+		    <groupId>org.apache.flink</groupId>
+		    <artifactId>flink-java</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka-0.11 -->
+		<dependency>
+		    <groupId>org.apache.flink</groupId>
+		    <artifactId>flink-connector-kafka-0.11_2.12</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-shaded-jackson -->
+		<dependency>
+		    <groupId>org.apache.flink</groupId>
+		    <artifactId>flink-shaded-jackson</artifactId>
+		</dependency>
+		<!-- flink end -->
+
+		<!-- 子项目依赖 -->
+		<dependency>
+			<groupId>com.cg</groupId>
+			<artifactId>module-common</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.cg</groupId>
+			<artifactId>module-utils</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.cg</groupId>
+			<artifactId>config-hbase</artifactId>
+		</dependency>
+		
+	</dependencies>
+	
+	<build>
+		<finalName>flink</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

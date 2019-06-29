@@ -1,0 +1,39 @@
+server:
+  port: 10000
+  servlet:
+    context-path: /rest/flink
+    
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    serverUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    healthcheck:
+      enabled: true
+  
+spring:
+  application:
+    name: flink-kafka
+  main: 
+  # 当遇到同样名字的时候，是否允许覆盖注册
+    allow-bean-definition-overriding: true 
+  cloud:
+    config:
+      failFast: true
+      uri: http://127.0.0.1:8888/
+      name: kafka
+      profile: dev
+      
+endpoints:
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
+
+      
+    
+    
