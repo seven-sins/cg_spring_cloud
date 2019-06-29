@@ -16,9 +16,9 @@ kafka:
       offset: 
         reset: latest
       topic: testTopic
-      group: 
-        id: testGroup
-      concurrency: 10
+    group: 
+      id: testGroup
+    concurrency: 10
   # 生产者
   producer:
     servers: 192.168.0.205:9092
