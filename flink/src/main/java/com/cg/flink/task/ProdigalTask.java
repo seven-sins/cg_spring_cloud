@@ -7,18 +7,19 @@ import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.utils.ParameterTool;
 
 import com.cg.common.config.spring.SpringUtil;
-import com.cg.flink.map.YearBaseMap;
-import com.cg.flink.reduce.YearBaseReduce;
-import com.cg.flink.service.YearBaseService;
-import com.cg.po.flink.YearBase;
+import com.cg.flink.map.ProdigalMap;
+import com.cg.flink.reduce.ProdigalReduce;
+import com.cg.flink.service.CarrierService;
+import com.cg.po.flink.Prodigal;
 
 /**
+ * 败家指数, 挥霍指数
  * @author seven sins
  * 2019年6月29日 下午2:46:01
  */
-public class YearBaseTask {
+public class ProdigalTask {
 	
-	private static YearBaseService yearBaseService;
+	private static CarrierService carrierService;
 
 	public static void main(String[] args) {
 		initService();
@@ -27,12 +28,13 @@ public class YearBaseTask {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 		env.getConfig().setGlobalJobParameters(params);
 		DataSet<String> text = env.readTextFile(params.get("input"));
-		DataSet<YearBase> map = text.map(new YearBaseMap());
-		DataSet<YearBase> reduce = map.groupBy("groupField").reduce(new YearBaseReduce());
+		DataSet<Prodigal> map = text.map(new ProdigalMap());
+		DataSet<Prodigal> reduce = map.groupBy("groupField").reduce(new ProdigalReduce());
 		try {
-			List<YearBase> list = reduce.collect();
-			for(YearBase yearBase : list) {
-				yearBaseService.add(yearBase);
+			List<Prodigal> list = reduce.collect();
+			for(Prodigal prodigal : list) {
+				// carrierService.add(prodigal);
+				System.out.println(prodigal);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,8 +42,8 @@ public class YearBaseTask {
 	}
 	
 	private static void initService() {
-		if(yearBaseService == null) {
-			yearBaseService = SpringUtil.getBean("yearBaseServiceImpl", YearBaseService.class);
+		if(carrierService == null) {
+			carrierService = SpringUtil.getBean("carrierServiceImpl", CarrierService.class);
 		}
 	}
 }

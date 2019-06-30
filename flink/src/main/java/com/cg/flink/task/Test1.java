@@ -17,4 +17,6 @@ public class Test1 {
 	public void test() {
 		elasticsearchService.add("index7");
 	}
+	
+	// 败家指数 = 支付金额平均值 * 0.3, 最大支付金额 * 0.3, 下单频率 * 0.4
 }

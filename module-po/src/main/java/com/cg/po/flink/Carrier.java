@@ -3,31 +3,32 @@ package com.cg.po.flink;
 import java.io.Serializable;
 
 /**
- * 年代
- * @author seven sins
- * 2019年6月30日 下午5:40:21
+ * 运营商
+ * 
+ * @author seven sins 
+ * 2019年6月30日 下午4:21:49
  */
-public class YearBase implements Serializable {
+public class Carrier implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 年代
+	 * 运营商
 	 */
-	private String yearType;
-	/**
-	 * 分组
-	 */
-	private String groupField;
+	private String carrier;
 	/**
 	 * 数量
 	 */
 	private Long count;
+	/**
+	 * 分组
+	 */
+	private String groupField;
 
-	public String getYearType() {
-		return yearType;
+	public String getCarrier() {
+		return carrier;
 	}
 
-	public void setYearType(String yearType) {
-		this.yearType = yearType;
+	public void setCarrier(String carrier) {
+		this.carrier = carrier;
 	}
 
 	public Long getCount() {

@@ -6,8 +6,13 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.cg.common.annotation.EnableExceptionHandler;
 import com.cg.common.annotation.EnableMvnConfig;
+import com.cg.common.annotation.EnableSpringUtil;
 import com.cg.elasticsearch.annotation.EnableElasticsearch;
 
+/**
+ * springUtil工具
+ */
+@EnableSpringUtil
 /**
  * 启用mvc配置
  */
