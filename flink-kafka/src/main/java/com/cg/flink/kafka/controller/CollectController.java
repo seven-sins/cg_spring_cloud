@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.common.config.kafka.KafkaProducerService;
+import com.cg.kafka.config.KafkaProducerService;
 import com.cg.utils.response.Result;
 
 /**

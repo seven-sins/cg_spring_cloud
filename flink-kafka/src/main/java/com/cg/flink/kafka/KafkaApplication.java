@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.cg.common.annotation.EnableExceptionHandler;
-import com.cg.common.annotation.EnableKafkaServer;
 import com.cg.common.annotation.EnableMvnConfig;
+import com.cg.kafka.annotation.EnableKafkaServer;
 
 /**
  * @author seven sins

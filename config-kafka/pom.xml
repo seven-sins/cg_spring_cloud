@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cg</groupId>
+		<artifactId>cg</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	
+	<artifactId>config-kafka</artifactId>
+	<name>config-kafka</name>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
+		<dependency>
+		    <groupId>org.springframework.kafka</groupId>
+		    <artifactId>spring-kafka</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka-clients</artifactId>
+		</dependency>
+		
+	</dependencies>
+	
+</project>

@@ -1,4 +1,4 @@
-package com.cg.common.config.kafka;
+package com.cg.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;

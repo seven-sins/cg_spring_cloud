@@ -60,10 +60,10 @@
 			<artifactId>module-common</artifactId>
 		</dependency>
 		
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.cg</groupId> -->
-<!-- 			<artifactId>module-po</artifactId> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>com.cg</groupId>
+			<artifactId>config-kafka</artifactId>
+		</dependency>
 		
 		<dependency>
 			<groupId>com.cg</groupId>

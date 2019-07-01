@@ -1,4 +1,4 @@
-package com.cg.common.config.kafka;
+package com.cg.kafka.config;
 
 /**
  * kafka消息生产者接口

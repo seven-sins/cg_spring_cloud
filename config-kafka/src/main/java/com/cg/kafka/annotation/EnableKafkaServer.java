@@ -1,4 +1,4 @@
-package com.cg.common.annotation;
+package com.cg.kafka.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
-import com.cg.common.config.kafka.KafkaProducerConfig;
-import com.cg.common.config.kafka.impl.KafkaProducerServiceImpl;
+import com.cg.kafka.config.KafkaProducerConfig;
+import com.cg.kafka.config.impl.KafkaProducerServiceImpl;
 
 /**
  * springUtil工具类

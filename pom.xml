@@ -41,6 +41,7 @@
     	<module>config-hbase</module>
     	<module>config-elasticsearch</module>
     	<module>flink</module>
+    	<module>config-kafka</module>
   </modules>
 
 	<dependencies>
@@ -372,6 +373,11 @@
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>config-elasticsearch</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.cg</groupId>
+				<artifactId>config-kafka</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			

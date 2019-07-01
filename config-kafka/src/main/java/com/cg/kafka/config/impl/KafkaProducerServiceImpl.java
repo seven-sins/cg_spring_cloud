@@ -1,10 +1,10 @@
-package com.cg.common.config.kafka.impl;
+package com.cg.kafka.config.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-import com.cg.common.config.kafka.KafkaProducerService;
+import com.cg.kafka.config.KafkaProducerService;
 
 /**
  * kafka消息生产者
