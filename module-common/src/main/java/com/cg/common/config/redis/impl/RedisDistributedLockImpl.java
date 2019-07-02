@@ -34,7 +34,7 @@ public class RedisDistributedLockImpl implements RedisDistributedLock {
         if (lock) {
             return true;
         } else {
-            // 设置失败次数计数器, 当到达10次时, 返回失败
+            // 设置失败次数计数器, 当到达retryCount次时, 返回失败
             int failCount = 1;
             int retry = retryCount == null ? RETRY_COUNT : retryCount;
             while(failCount <= retry){
