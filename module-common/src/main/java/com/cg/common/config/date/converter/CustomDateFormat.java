@@ -63,6 +63,7 @@ public class CustomDateFormat extends DateFormat {
 		if(date == null) {
 			return null;
 		}
+		// 如需返回其他格式, 在属性上添加注解 @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String dateString = dateFormat.format(date);
 		toAppendTo.append(dateString);
