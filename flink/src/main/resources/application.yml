@@ -20,6 +20,10 @@ spring:
   main: 
   # 当遇到同样名字的时候，是否允许覆盖注册
     allow-bean-definition-overriding: true 
+  boot: 
+    admin: 
+      client: 
+        url: http://${eureka.instance.hostname}:5000
   cloud:
     config:
       failFast: true

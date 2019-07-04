@@ -1,3 +1,5 @@
+admin:
+  host: 127.0.0.1
 server:
   port: 8888
 
@@ -6,11 +8,16 @@ spring:
     name: config-server
   profiles:
     active: native
+  boot: 
+    admin: 
+      client: 
+        url: http://${admin.host}:5000
   cloud:
     config:
       server:
         native:
-          searchLocations: file:E:/Java_Maven_Projects/cg_spring_cloud/conf
+          # searchLocations: file:E:/Java_Maven_Projects/cg_spring_cloud/conf
+          searchLocations: file:/Users/seven/Documents/projects/mine/cg/cg_spring_cloud/conf
         encrypt:
           enabled: false
 
