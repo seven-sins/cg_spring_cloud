@@ -348,7 +348,8 @@
 			    <version>1.8</version>
 			    <scope>system</scope>
 			    <!-- linux使用${JAVA_HOME}/lib/tools.jar -->
-			    <systemPath>C:/Program Files/Java/jdk1.8.0_211/lib/tools.jar</systemPath>
+				<!-- <systemPath>C:/Program Files/Java/jdk1.8.0_211/lib/tools.jar</systemPath> -->
+			    <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
 			</dependency>
 			
 			<!-- elasticsearch -->
