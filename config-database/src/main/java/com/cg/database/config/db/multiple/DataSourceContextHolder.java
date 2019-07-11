@@ -20,19 +20,19 @@ public class DataSourceContextHolder {
 	}
 
 	/**
-	 * 读库
+	 * 从库
 	 */
 	public static void setSlave() {
 		LOCAL.set(DataSourceType.SLAVE.getType());
-		LOG.info("数据库切换到从库...");
+		LOG.info("switch to db slave...");
 	}
 
 	/**
-	 * 写库
+	 * 主库
 	 */
 	public static void setMaster() {
 		LOCAL.set(DataSourceType.MASTER.getType());
-		LOG.info("数据库切换到主库...");
+		LOG.info("switch to db master...");
 	}
 
 	public static String getReadOrWrite() {
