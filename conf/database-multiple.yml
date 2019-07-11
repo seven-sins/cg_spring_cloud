@@ -1,0 +1,80 @@
+mysql:  
+  datasource: 
+    # 读库个数  
+    readSize: 2  
+    type: com.alibaba.druid.pool.DruidDataSource
+    master: 
+       url: jdbc:mysql://192.168.0.205:3306/cg?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+       username: root
+       password: login
+       driver-class-name: com.mysql.cj.jdbc.Driver
+       # 最小空闲数量
+       minIdle: 5
+       # 最大连接池数量
+       maxActive: 100
+       # 初始连接数 
+       initialSize: 10
+       # 最长等待时间
+       maxWait: 60000
+       # 失效检查线程运行时间间隔，如果小于等于0，不会启动检查线程 (毫秒)
+       timeBetweenEvictionRunsMillis: 60000
+       # 进行连接空闲时间判断，为0，对空闲的连接不进行验证；默认30分钟 (毫秒)
+       minEvictableIdleTimeMillis: 180000
+       validationQuery: select 'x'
+       testWhileIdle: true
+       testOnBorrow: false
+       testOnReturn: false
+       poolPreparedStatements: true
+       maxPoolPreparedStatementPerConnectionSize: 50
+       removeAbandoned: true
+       filters: stat
+    slave01: 
+       url: jdbc:mysql://192.168.0.206:3306/cg?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+       username: root
+       password: login
+       driver-class-name: com.mysql.cj.jdbc.Driver
+       # 最小空闲数量
+       minIdle: 5
+       # 最大连接池数量
+       maxActive: 100
+       # 初始连接数
+       initialSize: 10
+       # 最长等待时间
+       maxWait: 60000
+       # 失效检查线程运行时间间隔，如果小于等于0，不会启动检查线程 (毫秒)
+       timeBetweenEvictionRunsMillis: 60000
+       # 进行连接空闲时间判断，为0，对空闲的连接不进行验证；默认30分钟 (毫秒)
+       minEvictableIdleTimeMillis: 180000
+       validationQuery: select 'x'
+       testWhileIdle: true
+       testOnBorrow: false
+       testOnReturn: false
+       poolPreparedStatements: true
+       maxPoolPreparedStatementPerConnectionSize: 50
+       removeAbandoned: true
+       filters: stat
+    slave02:  
+       url: jdbc:mysql://192.168.0.207:3306/cg?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+       username: root
+       password: login
+       driver-class-name: com.mysql.cj.jdbc.Driver
+       # 最小空闲数量
+       minIdle: 5
+       # 最大连接池数量
+       maxActive: 100
+       # 初始连接数
+       initialSize: 10
+       # 最长等待时间
+       maxWait: 60000
+       # 失效检查线程运行时间间隔，如果小于等于0，不会启动检查线程 (毫秒)
+       timeBetweenEvictionRunsMillis: 60000
+       # 进行连接空闲时间判断，为0，对空闲的连接不进行验证；默认30分钟 (毫秒)
+       minEvictableIdleTimeMillis: 180000
+       validationQuery: select 'x'
+       testWhileIdle: true
+       testOnBorrow: false
+       testOnReturn: false
+       poolPreparedStatements: true
+       maxPoolPreparedStatementPerConnectionSize: 50
+       removeAbandoned: true
+       filters: stat

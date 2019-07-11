@@ -1,4 +1,4 @@
-package com.cg.database.config;
+package com.cg.database.config.db.single;
 
 import java.util.Properties;
 

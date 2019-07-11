@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.cg.common.annotation.EnableMvnConfig;
-import com.cg.database.annotation.EnableDatabase;
+import com.cg.database.annotation.db.single.EnableDatabase;
 import com.cg.shiro.annotation.EnableShiro;
 
 import tk.mybatis.spring.annotation.MapperScan;

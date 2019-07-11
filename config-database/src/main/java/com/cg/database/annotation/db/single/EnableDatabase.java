@@ -1,4 +1,4 @@
-package com.cg.database.annotation;
+package com.cg.database.annotation.db.single;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
-import com.cg.database.config.DruidConfiguration;
-import com.cg.database.config.MyBatisConfig;
+import com.cg.database.config.db.single.DruidConfiguration;
+import com.cg.database.config.db.single.MyBatisConfig;
 
 /**
  * 引入数据库配置
