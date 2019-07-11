@@ -22,7 +22,7 @@ public class DataSourceContextHolder {
 	/**
 	 * 读库
 	 */
-	public static void setRead() {
+	public static void setSlave() {
 		LOCAL.set(DataSourceType.SLAVE.getType());
 		LOG.info("数据库切换到读库...");
 	}
@@ -30,7 +30,7 @@ public class DataSourceContextHolder {
 	/**
 	 * 写库
 	 */
-	public static void setWrite() {
+	public static void setMaster() {
 		LOCAL.set(DataSourceType.MASTER.getType());
 		LOG.info("数据库切换到写库...");
 	}
