@@ -35,6 +35,14 @@ public class FlinkApplication implements CommandLineRunner {
 	// 部署  --classpath file:///home/hadoop/lib/accessors-smart-1.2.jar  --classpath file:///home/hadoop/lib/akka-actor_2.11-2.4.20.jar 
 	@Override
 	public void run(String... args) throws Exception {
+//		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+//		
+//		DataSet<String> text = env.fromElements("to be, or not to be");
+//		
+//		DataSet<Tuple2<String, Integer>> counts = text.flatMap(new LineSplitter())
+//				.groupBy(0).sum(1);
+//				
+		
 //		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 //		FlinkKafkaConsumer010 kafkaConsumer = new FlinkKafkaConsumer010<>("topic-name"), new SimpleStringSchema(), getProperties());
 //		DataStream<String> dataStream = env.addSource(kafkaConsumer);
