@@ -16,7 +16,7 @@ eureka:
   
 spring:
   application:
-    name: flink-kafka
+    name: flink
   main: 
   # 当遇到同样名字的时候，是否允许覆盖注册
     allow-bean-definition-overriding: true 
