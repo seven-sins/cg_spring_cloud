@@ -35,6 +35,10 @@ public class FlinkApplication implements CommandLineRunner {
 	// 部署  --classpath file:///home/hadoop/lib/accessors-smart-1.2.jar  --classpath file:///home/hadoop/lib/akka-actor_2.11-2.4.20.jar 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
+		
+		
 //		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 //		
 //		DataSet<String> text = env.fromElements("to be, or not to be");

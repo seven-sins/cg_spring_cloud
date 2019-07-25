@@ -52,6 +52,11 @@ log.dirs=/deploy/kafka_log
 # 消费者
 ./kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic testTopic
 
+
+
+#kafka后台启动
+nohup ./kafka-server-start.sh ../config/server.properties 2>&1 &
+
 ```
 
 
