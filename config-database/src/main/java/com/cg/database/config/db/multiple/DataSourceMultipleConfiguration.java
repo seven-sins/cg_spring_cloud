@@ -30,10 +30,10 @@ public class DataSourceMultipleConfiguration {
      * 写库 数据源配置 
      * @return 
      */  
-    @Bean(name = "master")  
+    @Bean(name = "masterDataSource")  
     @Primary  
     @ConfigurationProperties(prefix = "mysql.datasource.master")  
-    public DataSource writeDataSource() {  
+    public DataSource masterDataSource() {  
     	LOG.info("============= master DataSource init =============");  
         return DataSourceBuilder.create().type(dataSourceType).build();  
     }  

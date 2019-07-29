@@ -41,7 +41,7 @@ public class MenuController {
 	}
 	
 	@GetMapping("/menu/{id}")
-	public Result<Menu> get(@PathVariable("id") Long id) {
+	public Result<Menu> get(@PathVariable("id") String id) {
 		Menu menu = menuService.get(id);
 		
 		return new Result<>(menu);
@@ -64,7 +64,7 @@ public class MenuController {
 	}
 	
 	@DeleteMapping("/menu/{id}")
-	public Result<?> create(@PathVariable("id") Long id) {
+	public Result<?> create(@PathVariable("id") String id) {
 		menuService.deleteById(id);
 		
 		return Result.SUCCESS;

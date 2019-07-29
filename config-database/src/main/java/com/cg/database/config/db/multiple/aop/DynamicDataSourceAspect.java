@@ -10,10 +10,12 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 
-import com.cg.database.annotation.db.multiple.MasterDataSource;
-import com.cg.database.annotation.db.multiple.SlaveDataSource;
+import com.cg.database.annotation.db.multiple.Master;
+import com.cg.database.annotation.db.multiple.Slave;
 import com.cg.database.config.db.multiple.DataSourceContextHolder;
 
 /**
@@ -23,8 +25,11 @@ import com.cg.database.config.db.multiple.DataSourceContextHolder;
  * @date 2019年7月11日 上午11:07:22
  */
 @Aspect
-@Component
-public class DynamicDataSourceAspect {
+@Configuration
+public class DynamicDataSourceAspect implements Ordered {
+	
+	@Value("${mysql.datasource.readSize}")
+	private Integer readDataSourceSize;
 	/**
 	 * 以下方法名开头的方法默认走从库的查询
 	 */
@@ -32,11 +37,11 @@ public class DynamicDataSourceAspect {
 		Arrays.asList("^find", "^get", "^query", "^search")
 	);
 
-	//	@Pointcut("@annotation(com.cg.database.annotation.db.multiple.MasterDataSource)")
+	//	@Pointcut("@annotation(com.cg.db.annotation.multiple.Master)")
 	//	public void point() {
 	//	}
 
-	@Pointcut("execution(public * com.cg.*.service..*.*(..))")
+	@Pointcut("execution(* com.cg.*.service.impl.*.*(..))")
 	public void excudeService() {
 		
 	}
@@ -50,18 +55,21 @@ public class DynamicDataSourceAspect {
 		 * 默认走主库
 		 * 约定规则通过方法名自动识别走主库或从库(find,get,query等默认走从库, 其他走主库)
 		 */
-		DataSourceContextHolder.clear();
-		if (targetMethod.isAnnotationPresent(MasterDataSource.class)) {
+		// DataSourceContextHolder.clear();
+		if (targetMethod.isAnnotationPresent(Master.class)) {
 			DataSourceContextHolder.setMaster();
-		} else if (targetMethod.isAnnotationPresent(SlaveDataSource.class)) {
+		} else if (targetMethod.isAnnotationPresent(Slave.class)) {
 			DataSourceContextHolder.setSlave();
 		} else {
-			DataSourceContextHolder.setMaster();
-			String methodName = targetMethod.getName();
-			for(String item: REGEX_LIST) {
-				if(Pattern.matches(item, methodName)) {
-					DataSourceContextHolder.setSlave();
-					break;
+			// 从库数量>0, 才自动切换数据源
+			if(readDataSourceSize > 0) {
+				DataSourceContextHolder.setMaster();
+				String methodName = targetMethod.getName();
+				for(String item: REGEX_LIST) {
+					if(Pattern.matches(item, methodName)) {
+						DataSourceContextHolder.setSlave();
+						break;
+					}
 				}
 			}
 		}
@@ -72,5 +80,10 @@ public class DynamicDataSourceAspect {
 		DataSourceContextHolder.clear();
 		
 		return result;
+	}
+
+	@Override
+	public int getOrder() {
+		return 0;
 	}
 }

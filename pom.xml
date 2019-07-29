@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cg</groupId>
 	<artifactId>cg</artifactId>
@@ -14,7 +16,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.6.RELEASE</version>
-		<relativePath/> 
+		<relativePath />
 	</parent>
 
 	<properties>
@@ -25,7 +27,7 @@
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
-	
+
 	<modules>
 		<module>eureka-server</module>
 		<module>config-server</module>
@@ -35,17 +37,18 @@
 		<module>module-po</module>
 		<module>module-utils</module>
 		<module>zipkin-server</module>
-    	<module>module_db</module>
-    	<module>module-mapper</module>
-    	<module>flink-kafka</module>
-    	<module>config-database</module>
-    	<module>config-shiro</module>
-    	<module>config-hbase</module>
-    	<module>config-elasticsearch</module>
-    	<module>flink</module>
-    	<module>config-kafka</module>
-    	<module>admin-server</module>
-  	</modules>
+		<module>module_db</module>
+		<module>module-mapper</module>
+		<module>flink-kafka</module>
+		<module>config-database</module>
+		<module>config-shiro</module>
+		<module>config-hbase</module>
+		<module>config-elasticsearch</module>
+		<module>flink</module>
+		<module>config-kafka</module>
+		<module>admin-server</module>
+		<module>hive-mapper</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
@@ -56,7 +59,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>2.1.6.RELEASE</version><!--$NO-MVN-MAN-VER$-->
+			<version>2.1.6.RELEASE</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 	</dependencies>
 
@@ -77,25 +80,25 @@
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
 			<dependency>
-			    <groupId>org.springframework.boot</groupId>
-			    <artifactId>spring-boot-starter</artifactId>
-			    <version>2.1.6.RELEASE</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter</artifactId>
+				<version>2.1.6.RELEASE</version>
 			</dependency>
-			
+
 			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix-dashboard -->
 			<dependency>
-			    <groupId>org.springframework.cloud</groupId>
-			    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-			    <version>2.1.2.RELEASE</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+				<version>2.1.2.RELEASE</version>
 			</dependency>
-			
+
 			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest -->
 			<dependency>
-			    <groupId>org.springframework.boot</groupId>
-			    <artifactId>spring-boot-starter-data-rest</artifactId>
-			    <version>2.1.5.RELEASE</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-rest</artifactId>
+				<version>2.1.5.RELEASE</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-config-server</artifactId>
@@ -151,9 +154,9 @@
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
 			<dependency>
-			    <groupId>org.springframework.boot</groupId>
-			    <artifactId>spring-boot-starter-jdbc</artifactId>
-			    <version>2.1.6.RELEASE</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-jdbc</artifactId>
+				<version>2.1.6.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
@@ -161,211 +164,211 @@
 				<version>2.1.6.RELEASE</version>
 			</dependency>
 			<dependency>
-			    <groupId>mysql</groupId>
-			    <artifactId>mysql-connector-java</artifactId>
-			    <version>8.0.16</version>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>8.0.16</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
 			<dependency>
-			    <groupId>com.alibaba</groupId>
-			    <artifactId>druid-spring-boot-starter</artifactId>
-			    <version>1.1.18</version>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>1.1.18</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
 			<dependency>
-			    <groupId>com.github.pagehelper</groupId>
-			    <artifactId>pagehelper</artifactId>
-			    <version>5.1.10</version>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>5.1.10</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter -->
 			<dependency>
-			    <groupId>tk.mybatis</groupId>
-			    <artifactId>mapper-spring-boot-starter</artifactId>
-			    <version>2.1.5</version>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper-spring-boot-starter</artifactId>
+				<version>2.1.5</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-swagger2</artifactId>
-			    <version>2.9.2</version>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.9.2</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
 			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-swagger-ui</artifactId>
-			    <version>2.9.2</version>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.9.2</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
 			<dependency>
-			    <groupId>javax.persistence</groupId>
-			    <artifactId>persistence-api</artifactId>
-			    <version>1.0.2</version>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>1.0.2</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 			<dependency>
-			    <groupId>org.apache.commons</groupId>
-			    <artifactId>commons-lang3</artifactId>
-			    <version>3.9</version>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.9</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-starter -->
 			<dependency>
-			    <groupId>org.apache.shiro</groupId>
-			    <artifactId>shiro-spring-boot-starter</artifactId>
-			    <version>1.4.1</version>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring-boot-starter</artifactId>
+				<version>1.4.1</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
 			<dependency>
-			    <groupId>com.auth0</groupId>
-			    <artifactId>java-jwt</artifactId>
-			    <version>3.8.1</version>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>3.8.1</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 			<dependency>
-			    <groupId>com.alibaba</groupId>
-			    <artifactId>fastjson</artifactId>
-			    <version>1.2.58</version>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.58</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-server -->
 			<dependency>
-			    <groupId>io.zipkin.java</groupId>
-			    <artifactId>zipkin-server</artifactId>
-			    <version>2.12.9</version>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin-server</artifactId>
+				<version>2.12.9</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-autoconfigure-ui -->
 			<dependency>
-			    <groupId>io.zipkin.java</groupId>
-			    <artifactId>zipkin-autoconfigure-ui</artifactId>
-			    <version>2.12.9</version>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin-autoconfigure-ui</artifactId>
+				<version>2.12.9</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-sleuth -->
 			<dependency>
-			    <groupId>org.springframework.cloud</groupId>
-			    <artifactId>spring-cloud-starter-sleuth</artifactId>
-			    <version>2.1.2.RELEASE</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-sleuth</artifactId>
+				<version>2.1.2.RELEASE</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-sleuth-zipkin -->
 			<dependency>
-			    <groupId>org.springframework.cloud</groupId>
-			    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-			    <version>2.1.2.RELEASE</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+				<version>2.1.2.RELEASE</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zipkin -->
 			<dependency>
-			    <groupId>org.springframework.cloud</groupId>
-			    <artifactId>spring-cloud-starter-zipkin</artifactId>
-			    <version>2.1.2.RELEASE</version>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-zipkin</artifactId>
+				<version>2.1.2.RELEASE</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-server -->
 			<dependency>
-			    <groupId>de.codecentric</groupId>
-			    <artifactId>spring-boot-admin-starter-server</artifactId>
-			    <version>2.1.5</version>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>2.1.5</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-client -->
 			<dependency>
-			    <groupId>de.codecentric</groupId>
-			    <artifactId>spring-boot-admin-starter-client</artifactId>
-			    <version>2.1.5</version>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>2.1.5</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
 			<dependency>
-			    <groupId>redis.clients</groupId>
-			    <artifactId>jedis</artifactId>
-			    <version>2.10.2</version>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>2.10.2</version>
 			</dependency>
-			
-			
+
+
 			<!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
 			<dependency>
-			    <groupId>org.springframework.kafka</groupId>
-			    <artifactId>spring-kafka</artifactId>
-			    <version>2.2.7.RELEASE</version>
+				<groupId>org.springframework.kafka</groupId>
+				<artifactId>spring-kafka</artifactId>
+				<version>2.2.7.RELEASE</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
 			<dependency>
-			    <groupId>org.apache.kafka</groupId>
-			    <artifactId>kafka-clients</artifactId>
-			    <version>2.3.0</version>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka-clients</artifactId>
+				<version>2.3.0</version>
 			</dependency>
-			
+
 			<!-- flink start -->
 			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-core -->
 			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-core</artifactId>
-			    <version>1.8.0</version>
+				<groupId>org.apache.flink</groupId>
+				<artifactId>flink-core</artifactId>
+				<version>1.8.0</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
 			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-clients_2.12</artifactId>
-			    <version>1.8.0</version>
+				<groupId>org.apache.flink</groupId>
+				<artifactId>flink-clients_2.12</artifactId>
+				<version>1.8.0</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
 			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-streaming-java_2.12</artifactId>
-			    <version>1.8.0</version>
-			    <scope>provided</scope>
+				<groupId>org.apache.flink</groupId>
+				<artifactId>flink-streaming-java_2.12</artifactId>
+				<version>1.8.0</version>
+				<scope>provided</scope>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-java -->
 			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-java</artifactId>
-			    <version>1.8.0</version>
+				<groupId>org.apache.flink</groupId>
+				<artifactId>flink-java</artifactId>
+				<version>1.8.0</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka-0.11 -->
 			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-connector-kafka-0.11_2.12</artifactId>
-			    <version>1.8.0</version>
+				<groupId>org.apache.flink</groupId>
+				<artifactId>flink-connector-kafka-0.11_2.12</artifactId>
+				<version>1.8.0</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-shaded-jackson -->
 			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-shaded-jackson</artifactId>
-			    <version>2.9.8-7.0</version>
+				<groupId>org.apache.flink</groupId>
+				<artifactId>flink-shaded-jackson</artifactId>
+				<version>2.9.8-7.0</version>
 			</dependency>
 			<!-- flink end -->
-			
+
 			<!-- hbase -->
 			<!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
 			<dependency>
-			    <groupId>org.apache.hbase</groupId>
-			    <artifactId>hbase-client</artifactId>
-			    <version>2.2.0</version>
+				<groupId>org.apache.hbase</groupId>
+				<artifactId>hbase-client</artifactId>
+				<version>2.2.0</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-server -->
 			<dependency>
-			    <groupId>org.apache.hbase</groupId>
-			    <artifactId>hbase-server</artifactId>
-			    <version>2.2.0</version>
+				<groupId>org.apache.hbase</groupId>
+				<artifactId>hbase-server</artifactId>
+				<version>2.2.0</version>
 			</dependency>
 			<!-- hadoop构建会报jdk-tools.jar找不到的错误 -->
 			<dependency>
-			    <groupId>jdk.tools</groupId>
-			    <artifactId>jdk.tools</artifactId>
-			    <version>1.8</version>
-			    <scope>system</scope>
-			    <!-- linux使用${JAVA_HOME}/lib/tools.jar -->
+				<groupId>jdk.tools</groupId>
+				<artifactId>jdk.tools</artifactId>
+				<version>1.8</version>
+				<scope>system</scope>
+				<!-- linux使用${JAVA_HOME}/lib/tools.jar -->
 				<!-- <systemPath>C:/Program Files/Java/jdk1.8.0_211/lib/tools.jar</systemPath> -->
-			    <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+				<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
 			</dependency>
-			
+
 			<!-- elasticsearch -->
 			<!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
 			<dependency>
-			    <groupId>org.elasticsearch</groupId>
-			    <artifactId>elasticsearch</artifactId>
-			    <version>6.4.2</version>
+				<groupId>org.elasticsearch</groupId>
+				<artifactId>elasticsearch</artifactId>
+				<version>6.4.2</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.elasticsearch.client</groupId>
 				<artifactId>transport</artifactId>
 				<version>6.4.2</version>
 			</dependency>
-					
+
 			<!-- 子项目依赖 -->
 			<dependency>
 				<groupId>com.cg</groupId>
@@ -392,31 +395,99 @@
 				<artifactId>config-kafka</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>module-common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>module-po</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>module-mapper</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.cg</groupId>
 				<artifactId>module-utils</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
+			<dependency>
+				<groupId>com.cg</groupId>
+				<artifactId>hive-mapper</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+
+
+
+
+
+			<!-- 大数据 -->
+			<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-core_2.12</artifactId>
+				<version>2.4.3</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-sql_2.12</artifactId>
+				<version>2.4.3</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-hive -->
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-hive_2.12</artifactId>
+				<version>2.4.3</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-streaming_2.12</artifactId>
+				<version>2.4.3</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client -->
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-client</artifactId>
+				<version>3.2.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka -->
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-streaming-kafka_2.11</artifactId>
+				<version>1.6.3</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
+			<dependency>
+				<groupId>org.apache.hive</groupId>
+				<artifactId>hive-jdbc</artifactId>
+				<version>3.1.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.jetty.aggregate</groupId>
+						<artifactId>jetty-all</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.hive</groupId>
+						<artifactId>hive-shims</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
 

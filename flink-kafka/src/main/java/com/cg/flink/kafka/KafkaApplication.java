@@ -2,11 +2,9 @@ package com.cg.flink.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.cg.common.annotation.EnableExceptionHandler;
 import com.cg.common.annotation.EnableMvnConfig;
-import com.cg.kafka.annotation.EnableKafkaServer;
 
 /**
  * @author seven sins
@@ -17,15 +15,10 @@ import com.cg.kafka.annotation.EnableKafkaServer;
  */
 @EnableMvnConfig
 /**
- * 启用kafka配置
- */
-@EnableKafkaServer
-/**
  * 全局错误拦截
  */
 @EnableExceptionHandler
 @SpringBootApplication
-@EnableDiscoveryClient
 public class KafkaApplication {
 	
 	public static void main(String[] args) {

@@ -7,6 +7,8 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.AutoMappingBehavior;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -20,6 +22,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
@@ -55,7 +58,16 @@ public class MybatisMultipleConfig {
 		bean.setDataSource(roundRobinDataSouceProxy());
 		bean.setTypeAliasesPackage(typeAliasesPackage);
 		PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
-		bean.setMapperLocations(pathMatchingResourcePatternResolver.getResources(mapperLocations));
+		String[] locations = mapperLocations.split(",");
+		Resource[] resource = new Resource[0];
+		for(String item: locations) {
+			if(StringUtils.isBlank(item)) {
+				continue;
+			}
+			Resource[] res = pathMatchingResourcePatternResolver.getResources(item);
+			resource = ArrayUtils.addAll(resource, res);
+		}
+		bean.setMapperLocations(resource);
 		bean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
 		bean.getObject().getConfiguration().setAutoMappingBehavior(AutoMappingBehavior.FULL);
 
@@ -86,10 +98,8 @@ public class MybatisMultipleConfig {
 		int size = Integer.parseInt(readDataSourceSize);
 		MyAbstractRoutingDataSource proxy = new MyAbstractRoutingDataSource(size);
 		Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
-		// DataSource writeDataSource = SpringContextHolder.getBean("writeDataSource");
 		// 写
 		targetDataSources.put(DataSourceType.MASTER.getType(), masterDataSource);
-		// targetDataSources.put(DataSourceType.read.getType(),readDataSource);
 		// 多个读数据库时
 		for (int i = 0; i < size; i++) {
 			targetDataSources.put(i, slaveDataSources.get(i));

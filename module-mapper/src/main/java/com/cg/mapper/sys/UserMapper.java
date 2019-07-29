@@ -25,5 +25,5 @@ public interface UserMapper extends BaseMapper<User>{
 	 * 删除用户
 	 * @param id
 	 */
-	void deleteByUserId(Long id);
+	void deleteByUserId(String id);
 }

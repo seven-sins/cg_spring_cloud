@@ -72,6 +72,13 @@ public class IdMaker {
 		}
 		return instance.nextId();
 	}
+	
+	public static String getStringKey() {
+		if(instance == null) {
+			instance = new IdMaker(1, 1);
+		}
+		return String.valueOf(instance.nextId());
+	}
 
 	// ==============================Constructors=====================================
 	/**

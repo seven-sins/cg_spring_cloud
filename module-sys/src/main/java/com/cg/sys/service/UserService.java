@@ -19,5 +19,5 @@ public interface UserService extends BaseService<User> {
 	 * 删除用户
 	 * @param userId
 	 */
-	void deleteByUserId(Long userId);
+	void deleteByUserId(String userId);
 }

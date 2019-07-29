@@ -41,7 +41,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/user/{id}")
-	public Result<User> get(@PathVariable("id") Long id) {
+	public Result<User> get(@PathVariable("id") String id) {
 		User user = userService.get(id);
 		
 		return new Result<>(user);
@@ -55,7 +55,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/user/{id}")
-	public Result<?> create(@PathVariable("id") Long id, @Valid @RequestBody User user) {
+	public Result<?> create(@PathVariable("id") String id, @Valid @RequestBody User user) {
 		user.setId(id);
 		user.setUpdateTime(new Date());
 		userService.update(user);
@@ -64,7 +64,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/user/{id}")
-	public Result<?> create(@PathVariable("id") Long id) {
+	public Result<?> create(@PathVariable("id") String id) {
 		userService.deleteByUserId(id);
 		
 		return Result.SUCCESS;

@@ -41,7 +41,7 @@ public class RoleController {
 	}
 	
 	@GetMapping("/role/{id}")
-	public Result<Role> get(@PathVariable("id") Long id) {
+	public Result<Role> get(@PathVariable("id") String id) {
 		Role role = roleService.get(id);
 		
 		return new Result<>(role);
@@ -55,7 +55,7 @@ public class RoleController {
 	}
 	
 	@PutMapping("/role/{id}")
-	public Result<?> create(@PathVariable("id") Long id, @Valid @RequestBody Role role) {
+	public Result<?> create(@PathVariable("id") String id, @Valid @RequestBody Role role) {
 		role.setId(id);
 		role.setUpdateTime(new Date());
 		roleService.update(role);
@@ -64,7 +64,7 @@ public class RoleController {
 	}
 	
 	@DeleteMapping("/role/{id}")
-	public Result<?> create(@PathVariable("id") Long id) {
+	public Result<?> create(@PathVariable("id") String id) {
 		roleService.deleteByRoleId(id);
 		
 		return Result.SUCCESS;

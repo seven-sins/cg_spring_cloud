@@ -15,7 +15,7 @@ public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Long id;
+	private String id;
 	/**
 	 * 角色名称
 	 */
@@ -32,17 +32,17 @@ public class Role implements Serializable {
 
 	private Date createTime;
 
-	private Long createBy;
+	private String createBy;
 
 	private Date updateTime;
 
-	private Long updateBy;
+	private String updateBy;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -70,11 +70,11 @@ public class Role implements Serializable {
 		this.createTime = createTime;
 	}
 
-	public Long getCreateBy() {
+	public String getCreateBy() {
 		return createBy;
 	}
 
-	public void setCreateBy(Long createBy) {
+	public void setCreateBy(String createBy) {
 		this.createBy = createBy;
 	}
 
@@ -86,11 +86,11 @@ public class Role implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	public Long getUpdateBy() {
+	public String getUpdateBy() {
 		return updateBy;
 	}
 
-	public void setUpdateBy(Long updateBy) {
+	public void setUpdateBy(String updateBy) {
 		this.updateBy = updateBy;
 	}
 
