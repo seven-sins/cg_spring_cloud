@@ -34,7 +34,7 @@ public class CollectController {
 		
 		String jsonString = JSON.toJSONString(msg);
 		// 业务开始
-		kafkaTemplate.send("test2", "key", jsonString);
+		kafkaTemplate.send("testTopic", "key", jsonString);
 		
 		return Result.SUCCESS;
 	}
