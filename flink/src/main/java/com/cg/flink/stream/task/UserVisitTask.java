@@ -46,7 +46,7 @@ public class UserVisitTask {
         FlinkKafkaConsumer010<Message>  flinkKafkaConsumer = new FlinkKafkaConsumer010<Message>(parameterTool.getRequired("input-topic"), new KafkaMessageSchema(), parameterTool.getProperties());
         DataStream<Message> input = env.addSource(flinkKafkaConsumer.assignTimestampsAndWatermarks(new KafkaMessageWatermarks()));
         
-        //
+        // 数据转换
         DataStream<UserVisit> map = input.flatMap(new UserVisitMap());
         
         DataStream<UserVisit> reduce = map.keyBy("userId").countWindow(Long.valueOf(parameterTool.getRequired("winsdows.size"))).reduce(new UserVisitReduce());
