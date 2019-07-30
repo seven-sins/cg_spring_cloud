@@ -1,13 +1,16 @@
 package com.cg.flink.kafka.controller;
 
-import java.util.Map;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.kafka.config.KafkaProducerService;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.cg.po.bigdata.Message;
 import com.cg.utils.response.Result;
 
 /**
@@ -19,11 +22,19 @@ import com.cg.utils.response.Result;
 public class CollectController {
 
 	@Autowired
-	KafkaProducerService kafkaProducerService;
+	KafkaTemplate<String, String> kafkaTemplate;
 	
 	@PostMapping("/producer/send")
-	public Result<?> send(@RequestBody Map<String, String> map){
-		kafkaProducerService.send("testTopic", "key", "123");
+	public Result<?> send(@RequestBody JSONObject json){
+		// 获取消息, 将获取到的消息封装到message
+		Message msg = new Message();
+		msg.setMessage(json.toJSONString());
+		msg.setCount(1);
+		msg.setTimestamp(new Date().getTime());
+		
+		String jsonString = JSON.toJSONString(msg);
+		// 业务开始
+		kafkaTemplate.send("test2", "key", jsonString);
 		
 		return Result.SUCCESS;
 	}

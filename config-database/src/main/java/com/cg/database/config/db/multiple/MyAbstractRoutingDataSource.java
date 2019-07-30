@@ -12,17 +12,20 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
  */
 public class MyAbstractRoutingDataSource extends AbstractRoutingDataSource {
 
-	private final int dataSourceNumber;
+	private int dataSourceNumber;
 	private AtomicInteger count = new AtomicInteger(0);
 
 	public MyAbstractRoutingDataSource(int dataSourceNumber) {
 		this.dataSourceNumber = dataSourceNumber;
 	}
 
+	/**
+	 * 返回生效数据源名称
+	 */
 	@Override
 	protected Object determineCurrentLookupKey() {
 		String typeKey = DataSourceContextHolder.getReadOrWrite();
-		if (StringUtils.isBlank(typeKey) || typeKey.equals(DataSourceType.MASTER.getType())) {
+		if (StringUtils.isBlank(typeKey) || typeKey.equals(DataSourceType.MASTER.getType()) || dataSourceNumber == 0) {
 			return DataSourceType.MASTER.getType();
 		}
 		// 读 简单负载均衡

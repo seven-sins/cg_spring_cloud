@@ -28,12 +28,12 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.cg.mall.model" targetProject="E:\Java_Maven_Projects\CG_SpringCloud\Module_DB\src\main\java"/>
+        <javaModelGenerator targetPackage="com.cg.mall.model" targetProject="D:\Java_Maven_Projects\cg_spring_cloud\module_db\src\main\java"/>
 
-        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="E:\Java_Maven_Projects\CG_SpringCloud\Module_DB\src\main\resources"/>
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="D:\Java_Maven_Projects\cg_spring_cloud\module_db\src\main\resources"/>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.cg.mall.mapper"
-                             targetProject="E:\Java_Maven_Projects\CG_SpringCloud\Module_DB\src\main\java"/>
+                             targetProject="D:\Java_Maven_Projects\cg_spring_cloud\module_db\src\main\java"/>
         <!--生成全部表tableName设为%-->
         <table tableName="%">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>

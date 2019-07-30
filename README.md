@@ -52,6 +52,17 @@ log.dirs=/deploy/kafka_log
 # 消费者
 ./kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic testTopic
 
+
+#创建主题
+ ./kafka-console-consumer.sh --bootstrap-server PLAINTEXT://192.168.0.205:9092 --topic test2 --from-beginning
+
+
+#kafka后台启动
+nohup ./kafka-server-start.sh ../config/server.properties 2>&1 &
+
+
+#创建主题时ip如果使用127.0.0.1可能导致连接不上
+
 ```
 
 

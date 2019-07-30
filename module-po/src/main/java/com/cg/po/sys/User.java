@@ -22,7 +22,7 @@ public class User implements Serializable {
 	 * 用户ID
 	 */
 	@Id
-	private Long id;
+	private String id;
 	/**
 	 * 用户名
 	 */
@@ -74,17 +74,17 @@ public class User implements Serializable {
 
 	private Date createTime;
 
-	private Long createBy;
+	private String createBy;
 
 	private Date updateTime;
 
-	private Long updateBy;
+	private String updateBy;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -128,11 +128,11 @@ public class User implements Serializable {
 		this.createTime = createTime;
 	}
 
-	public Long getCreateBy() {
+	public String getCreateBy() {
 		return createBy;
 	}
 
-	public void setCreateBy(Long createBy) {
+	public void setCreateBy(String createBy) {
 		this.createBy = createBy;
 	}
 
@@ -144,11 +144,11 @@ public class User implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	public Long getUpdateBy() {
+	public String getUpdateBy() {
 		return updateBy;
 	}
 
-	public void setUpdateBy(Long updateBy) {
+	public void setUpdateBy(String updateBy) {
 		this.updateBy = updateBy;
 	}
 

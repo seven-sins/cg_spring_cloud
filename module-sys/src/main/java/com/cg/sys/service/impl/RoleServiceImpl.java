@@ -34,7 +34,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 	@Override
 	public void insert(Role role) {
 		Assert.isTrue(roleMapper.getByRoleName(role.getRoleName()) == null, "角色名称已存在");
-		role.setId(IdMaker.get());
+		role.setId(IdMaker.getStringKey());
 		role.setIsDelete(0);
 		role.setStatus(1);
 		role.setCreateTime(new Date());
@@ -51,7 +51,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 	}
 
 	@Override
-	public void deleteByRoleId(Long roleId) {
+	public void deleteByRoleId(String roleId) {
 		roleMapper.deleteByRoleId(roleId);
 	}
 }

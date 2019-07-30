@@ -13,5 +13,5 @@ public interface RoleService extends BaseService<Role> {
 	 * 删除角色
 	 * @param id
 	 */
-	void deleteByRoleId(Long id);
+	void deleteByRoleId(String id);
 }

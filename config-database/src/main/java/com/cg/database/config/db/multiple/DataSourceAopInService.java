@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSourceAopInService implements PriorityOrdered {
 
-	@Before("@annotation(com.cg.database.annotation.db.multiple.SlaveDataSource) ")
+	@Before("@annotation(com.cg.db.annotation.multiple.Slave) ")
 	public void setSlaveDataSourceType() {
 		/**
 		 * 如果已经开启写事务了，那之后的所有读都从写库读
@@ -27,7 +27,7 @@ public class DataSourceAopInService implements PriorityOrdered {
 		}
 	}
 
-	@Before("@annotation(com.cg.database.annotation.db.multiple.MasterDataSource) ")
+	@Before("@annotation(com.cg.db.annotation.multiple.Master) ")
 	public void setMasterDataSourceType() {
 		DataSourceContextHolder.setMaster();
 	}

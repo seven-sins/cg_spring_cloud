@@ -35,7 +35,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public T get(Long id) {
+	public T get(String id) {
 		return baseMapper.selectByPrimaryKey(id);
 	}
 
@@ -50,7 +50,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
 		baseMapper.deleteByPrimaryKey(id);
 	}
 

@@ -59,9 +59,9 @@ public class CommentGenerator extends DefaultCommentGenerator {
 		
 		if(!introspectedColumn.isNullable() && !PRIMARY_KEY.equals(introspectedColumn.getActualColumnName())) {
 			if(VARCHAR.equals(introspectedColumn.getJdbcTypeName().toUpperCase())) {
-				field.addJavaDocLine("@NotBlank(message = \"" + introspectedColumn.getActualColumnName() + "不能为空\")");
+				field.addJavaDocLine("@NotBlank(message = \"" + field.getName() + "不能为空\")");
 			} else {
-				field.addJavaDocLine("@NotNull(message = \"" + introspectedColumn.getActualColumnName() + "不能为空\")");
+				field.addJavaDocLine("@NotNull(message = \"" + field.getName() + "不能为空\")");
 			}
 		}
 	}

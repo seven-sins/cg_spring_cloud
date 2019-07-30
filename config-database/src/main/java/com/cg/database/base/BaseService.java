@@ -22,7 +22,7 @@ public interface BaseService<T> {
 	 * @param id
 	 * @return
 	 */
-	public T get(Long id);
+	public T get(String id);
 
 	/**
 	 * 插入，用实体作为参数
@@ -43,6 +43,6 @@ public interface BaseService<T> {
 	 * 
 	 * @param id
 	 */
-	public void deleteById(Long id);
+	public void deleteById(String id);
 
 }

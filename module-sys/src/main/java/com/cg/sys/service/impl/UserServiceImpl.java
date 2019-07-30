@@ -37,7 +37,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		 * 验证用户名重名
 		 */
 		Assert.isTrue(userMapper.getByUserName(user.getUserName()) == null, "用户名已存在");
-		user.setId(IdMaker.get());
+		user.setId(IdMaker.getStringKey());
 		user.setIsDelete(0);
 		user.setStatus(1);
 		user.setCreateTime(new Date());
@@ -51,7 +51,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	}
 
 	@Override
-	public void deleteByUserId(Long userId) {
+	public void deleteByUserId(String userId) {
 		userMapper.deleteByUserId(userId);
 	}
 }
