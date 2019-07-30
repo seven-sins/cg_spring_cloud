@@ -4,7 +4,7 @@
 # 下载
 wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz
 # 解压
-tar -zxvf apache-zookeeper-3.4.14.tar.gz
+tar -zxvf zookeeper-3.4.14.tar.gz
 # 重命名
 mv apache-zookeeper-3.4.14.tar.gz zookeeper-3.4.14
 # 重命名配置文件
