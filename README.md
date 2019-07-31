@@ -41,7 +41,27 @@ tar -zxvf kafka_2.11-2.2.0.tgz
 cd kafka_2.11-2.2.0/config
 vi server.properties
 # 修改配置(其他保持默认,默认连接本机2181端口zookeeper) 
-log.dirs=/deploy/kafka_log
+broker.id=0
+listeners=PLAINTEXT://172.18.136.2:9092
+listeners=PLAINTEXT://172.18.136.2:9092  #ifconfig获得的ip
+advertised.listeners=PLAINTEXT://120.78.152.252:9092
+num.network.threads=3
+num.io.threads=8
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+log.dirs=/deploy/data/kafka-logs
+num.partitions=1
+offsets.topic.replication.factor=1
+transaction.state.log.replication.factor=1
+transaction.state.log.min.isr=1
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000
+zookeeper.connect=127.0.0.1:2181
+zookeeper.connection.timeout.ms=6000
+group.initial.rebalance.delay.ms=0
+
 # 启动
 # 进入bin目录
 ./kafka-server-start.sh ../config/server.properties
