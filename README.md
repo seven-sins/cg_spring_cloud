@@ -1,3 +1,15 @@
+```shell
+which java
+ls -lrt /usr/bin/java
+ls -lrt /etc/alternatives/java
+
+#/usr/java/jdk1.8.0_221-amd64
+```
+
+
+
+
+
 # 1. 安装zookeeper
 
 ```shell
@@ -42,6 +54,8 @@ cd kafka_2.11-2.2.0/config
 vi server.properties
 # 修改配置(其他保持默认,默认连接本机2181端口zookeeper) 
 log.dirs=/deploy/kafka_log
+listeners=PLAINTEXT://172.18.136.3:9092   						#内网IP
+advertised.listeners=PLAINTEXT://39.108.94.127:9092		#外网ID
 # 启动
 # 进入bin目录
 ./kafka-server-start.sh ../config/server.properties
@@ -277,6 +291,7 @@ network.host: 192.168.0.205
 http.port: 9200
 cluster.name: my_es
 node.name: node1
+action.auto_create_index: true #允许自动创建索引
 # 添加elasticsearch用户
 useradd es
 passwd es
@@ -287,8 +302,8 @@ chown -R es:es /deploy/elasticsearch-7.2.0
 # 1.使用root用户编辑/etc/security/limits.conf
 # 添加以下内容
 * soft nofile 65536
-* hard nofile 131072
-* soft nproc 2048
+* hard nofile 65536
+* soft nproc 4096
 * hard nproc 4096
 # 2.root用户编辑vi /etc/sysctl.conf
 # 添加下面配置：
@@ -301,6 +316,15 @@ su es
 
 # web访问
 http://192.168.0.205:9200/
+
+# 查看集群健康状态
+http://120.77.176.63:9200/_cluster/health?pretty
+
+# 修改index.max_result_window
+curl -H "Content-Type: application/json" -XPUT 'http://39.108.94.127:9200/_all/_settings?preserve_existing=true' -d '{
+  "index.max_result_window" : "600000"
+}'
+
 ```
 
 
@@ -316,6 +340,8 @@ tar -zxvf elasticsearch-6.4.2.tar.gz
 
 # web访问
 http://192.168.0.205:9200/
+
+
 ```
 
 
@@ -327,4 +353,12 @@ http://192.168.0.205:9200/_cluster/health?pretty=true
 ```
 
 
+
+##### 查看mapping
+
+```shell
+# visit是索引
+
+http://39.108.94.127:9200/visit/_mapping?pretty 
+```
 
